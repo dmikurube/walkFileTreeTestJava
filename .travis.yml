@@ -1,0 +1,16 @@
+language: java
+matrix:
+  include:
+    - os: linux
+      jdk: oraclejdk8
+    - os: linux
+      jdk: oraclejdk9
+    - os: linux
+      jdk: oraclejdk10
+    - os: osx
+      osx_image: xcode9.4  # No JDK 9 nor JDK 10 on Mac OS X. :(
+cache:
+  directories:
+    - $HOME/.gradle
+script:
+  - ./gradlew --info --no-daemon test
